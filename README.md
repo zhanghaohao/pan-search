@@ -9,8 +9,8 @@
 ## 数据库配置
 数据存储用到了mysql和redis,请根据你的情况修改配置文件：src/util/coreconfig/config.yaml
 ## 程序启动
-cd src/
-go run start.go
+`cd src/`
+`go run start.go`
 ## 如何访问
 程序跑起来后会在本地8080端口监听，你可以通过http://localhost:8080 来访问
 # 欢迎随时联系我
