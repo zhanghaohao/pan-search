@@ -1,0 +1,36 @@
+{{ define "magnetindex" }}
+<!DOCTYPE html>
+<html lang="en">
+{{template "header"}}
+<body>
+{{template "navi"}}
+<div class="container">
+    <div class="searchtitle">
+        磁力搜索
+    </div>
+    <div class="searchbar">
+        <form id="magnetform">
+            <div class="col-xs-12 col-sm-9 col-md-9">
+                <input id="searchinput" name="keyword" type="text" placeholder="请输入搜索关键字">
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <button id="searchbutton" type="submit">搜一搜</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container declaration-box">
+    <div class="row declaration">
+        <div class="title">声明</div>
+        <div class="content">
+            <p>1.在输入框里面输入您想查看的资源,比如我想看电影《窃听风云》,只需要输入:窃听风云，然后点击搜索按钮。</p>
+            <p>2.若您想搜索的关键词包含多个，请用空格隔开，比如想搜索：电影《活着》，可以输入：电影 活着，然后点击搜索按钮。</p>
+            <p>3.若您要下载资源请先<a href="https://www.xunlei.com/" target="_blank">安装迅雷</a>,然后点击资源名称即可加入迅雷下载。</p>
+            <p>4.本网站不收集任何种子文件资源，只是对种子文件资源的文件名进行采集索引，故该搜索引擎没有违法互联网相关法律法规，本站仅供技术交流与研究。</p>
+        </div>
+    </div>
+</div>
+{{template "footer"}}
+</body>
+</html>
+{{end}}

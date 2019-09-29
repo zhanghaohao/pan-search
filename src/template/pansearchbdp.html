@@ -1,0 +1,37 @@
+{{ define "pansearchbdp" }}
+<!DOCTYPE html>
+<html lang="en">
+{{template "header"}}
+<body>
+<div class="container wrapper">
+{{template "navi"}}
+{{template "pansearcher"}}
+</div>
+<div class="container bdpinfo">
+    <div class="title">{{.Title}}</div>
+    <div class="infobox">
+        <div class="info">类型：{{.Ext}}</div>
+        <div class="info size"></div>
+        <div class="info">时间：{{.CTime}}</div>
+        <div class="info">密码：{{.Password}}</div>
+    </div>
+    <div class="btnbox">
+        <button class="btn" onclick="goto()">查看百度网盘资源</button>
+    </div>
+    <div class="warning">
+        <strong>免责申明:</strong>
+        <p>本站不下载和存储任何资源，请自行判断文件的安全性和完整性，如你发现或认为某分享链接或达人用户涉及侵权，请举报。</p>
+        <p>百度网盘违规举报：<a target="_blank" href="http://tousu.baidu.com/pan/add">http://tousu.baidu.com/pan/add</a></p>
+    </div>
+</div>
+{{template "footer"}}
+</body>
+<script type="text/javascript">
+    $('.bdpinfo .size').text("大小：" + CalSize({{.Size}}));
+    function goto() {
+        var url = {{.Url}};
+        window.open(url);
+    }
+</script>
+</html>
+{{ end }}

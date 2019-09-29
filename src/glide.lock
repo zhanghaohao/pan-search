@@ -1,0 +1,33 @@
+hash: 2bd867d473a1ddd8ab9c68fd732a37ff2906de5bf1f1c526dceaa0a668e7f1fe
+updated: 2019-05-22T18:41:01.222954+08:00
+imports:
+- name: github.com/andybalholm/cascadia
+  version: 680b6a57bda4f657485ad44bdea42342ead737bc
+- name: github.com/garyburd/redigo
+  version: 569eae59ada904ea8db7a225c2b47165af08735a
+  subpackages:
+  - internal
+  - redis
+- name: github.com/go-redis/redis
+  version: 75795aa4236dc7341eefac3bbe945e68c99ef9df
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
+  - internal/util
+- name: github.com/go-sql-driver/mysql
+  version: 877a9775f06853f611fb2d4e817d92479242d1cd
+- name: github.com/PuerkitoBio/goquery
+  version: 3dcf72e6c17f694381a21592651ca1464ded0e10
+- name: golang.org/x/net
+  version: 018c4d40a106a7ae83689758294fcd8d23850745
+  subpackages:
+  - html
+  - html/atom
+- name: google.golang.org/appengine
+  version: 311d3c5cf9373249645db030e53c37c209a8b378
+  subpackages:
+  - cloudsql
+testImports: []

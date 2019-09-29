@@ -1,0 +1,6 @@
+MysqlUser=root
+MysqlPassword=JDqXPqm
+MysqlHost=127.0.0.1
+MysqlPort=3306
+MysqlDB=panghaozi
+

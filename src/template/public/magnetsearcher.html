@@ -1,0 +1,12 @@
+{{ define "magnetsearcher" }}
+<div class="searchbar">
+    <form id="magnetform">
+        <div class="col-xs-12 col-sm-9 col-md-9">
+            <input id="searchinput" name="keyword" type="text" placeholder="请输入搜索关键字" value="{{.}}" >
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3">
+            <button id="searchbutton" type="submit">搜一搜</button>
+        </div>
+    </form>
+</div>
+{{ end }}

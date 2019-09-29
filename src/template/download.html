@@ -1,0 +1,48 @@
+{{ define "download" }}
+<!DOCTYPE html>
+<html lang="en">
+{{template "header"}}
+<body>
+<div class="container wrapper">
+{{template "navi"}}
+{{template "pansearcher" .}}
+</div>
+<div class="container download">
+    <h3>百度网盘资源破解下载说明</h3>
+    <p>当你在百度网盘里面找到了一个想要看的电影或资料，但是它是个压缩包，那你就会去下载，然而当你发现百度网盘客户端的下载速度只有几十K的时候你是不是会很崩溃？
+    这里提供一种方法，让你不需要购买会员也能高速下载资源。</p>
+    <h3>1.把要下载的文件保存到自己的百度网盘中</h3>
+    <h3>2.下载客户端</h3>
+        <h4>客户端下载</h4>
+        <p>具体请参考：</p><a href="https://github.com/iikira/BaiduPCS-Go/releases" target="_blank">客户端下载</a>
+        <h4>Windows</h4>
+        <p>程序应在 命令提示符 (Command Prompt) 或 PowerShell 中运行, 在 mintty (例如: GitBash) 可能会有显示问题.</p>
+        <h4>Linux / macOS</h4>
+        <p>程序应在 终端 (Terminal) 运行.</p>
+        <h4>Android / iOS</h4>
+        <p>Android / iOS 移动设备操作比较麻烦, 不建议在移动设备上使用本程序.</p>
+    <h3>3.运行客户端</h3>
+        <h4>登录百度帐号</h4>
+            <h5>常规登录百度帐号</h5>
+            <p>支持在线验证绑定的手机号或邮箱,</p>
+            <p class="cmd">BaiduPCS-Go login</p>
+            <h5>使用百度 BDUSS 来登录百度帐号</h5>
+            <a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E-%E8%8E%B7%E5%8F%96%E7%99%BE%E5%BA%A6-BDUSS">关于 获取百度 BDUSS</a>
+            <p class="cmd">BaiduPCS-Go login -bduss=$BDUSS</p>
+        <h4>退出百度帐号</h4>
+        <p class="cmd">BaiduPCS-Go logout</p>
+        <h4>切换工作目录</h4>
+        <p class="cmd">BaiduPCS-Go cd 目录</p>
+        <h4>下载文件/目录</h4>
+            <h5>默认下载方式</h5>
+            <p class="cmd">BaiduPCS-Go download 网盘文件或目录的路径 </p>
+            <h5>直链下载方式</h5>
+            <p class="cmd">BaiduPCS-Go download --locate 网盘文件或目录的路径</p>
+            <h5>直链负载均衡下载方式（速度最快，推荐使用）</h5>
+            <p class="cmd">BaiduPCS-Go download --locate_pan 网盘文件或目录的路径</p>
+</div>
+
+{{template "footer"}}
+</body>
+</html>
+{{ end }}
