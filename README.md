@@ -12,7 +12,7 @@
 cd src/
 go run start.go
 ## 如何访问
-程序跑起来后会在本地8080端口监听，你可以通过http://localhost:8080来访问
+程序跑起来后会在本地8080端口监听，你可以通过http://localhost:8080 来访问
 # 欢迎随时联系我
 本人有多年运维开发经验，擅长Linux, Ansible, Kubernetes, Golang, Python, Html等技术。
 如果有小伙伴考虑创业或者私活，或者对我的项目感兴趣的可以随时联系我。
