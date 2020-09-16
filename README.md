@@ -7,7 +7,7 @@
 本项目内部嵌入了几个百度网盘资源库，用户在输入关键字后，搜索引擎会实时对资源库进行爬取，然后把结果过滤，筛选后返回给用户。
 # 代码运行
 ## 数据库配置
-数据存储用到了mysql和redis,请根据你的情况修改配置文件：src/util/coreconfig/config.yaml
+数据存储用到了mysql,请根据你的情况修改配置文件：src/util/coreconfig/config.yaml
 ## 程序启动
 `cd src/`  
 `go run start.go`

@@ -1,0 +1,71 @@
+{{ define "panmetadata" }}
+<!DOCTYPE html>
+<html lang="en">
+<title>{{.Title}} - 网盘搜索 - 胖浩子搜索</title>
+<meta name="keywords" content="{{.Title}}">
+<meta name="description" content="{{.Title}}，文件大小：{{.Size}}，由用户于{{.CTime}}上传到百度网盘，您可以访问{{.Title}}页面进行下载">
+{{template "header"}}
+<body>
+{{template "pansearcher"}}
+<div class="container bdpinfo">
+    <div class="title">{{.Title}}</div>
+    {{/*<div class="resource-meta">*/}}
+        {{/*<span class="info-item">*/}}
+            {{/*<span class="infokey">文件类型</span>*/}}
+            {{/*{{.Ext}}*/}}
+        {{/*</span>*/}}
+    {{/*</div>*/}}
+    <div class="resource-meta">
+        <span class="info-item size">
+            <span class="infokey">文件大小</span>
+        </span>
+    </div>
+    <div class="resource-meta">
+        <span class="info-item">
+            <span class="infokey">更新时间</span>
+            {{.CTime}}
+        </span>
+    </div>
+    <div class="resource-meta password-meta">
+        <span class="info-item password-item">
+            <span class="infokey">提取密码</span>
+            <span class="password">{{.Password}}</span>
+            <span class="copy" onclick="copy()">点击复制</span>
+        </span>
+    </div>
+    <div class="verifyPanURL">
+        <p>正在检测该链接的有效性...</p>
+    </div>
+    <div class="btnbox">
+        <button class="btn"  onclick="block()">同意申明，继续访问</button>
+    </div>
+    <div class="warning">
+        <strong>免责申明:</strong>
+        <p>本站不下载和存储任何资源，请自行判断文件的安全性和完整性，如你发现或认为某分享链接或达人用户涉及侵权，请举报。</p>
+        <p>百度网盘违规举报：<a target="_blank" href="http://tousu.baidu.com/pan/add">http://tousu.baidu.com/pan/add</a></p>
+    </div>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="qrcodeTitle">微信扫码关注，立刻获取资源链接</h3>
+                <img src="" id="qrcodeImg">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+{{template "footer"}}
+</body>
+<script type="text/javascript">
+    size = {{.Size}};
+    url = {{.Url}};
+</script>
+<script src="/static/js/metadata-v2.js"></script>
+</html>
+{{ end }}

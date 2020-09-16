@@ -1,35 +1,41 @@
 {{ define "panindex" }}
 <!DOCTYPE html>
 <html lang="en">
+<title>网盘搜索 - 胖浩子搜索</title>
+<meta name="keywords" content="胖浩子搜索,胖浩子,网盘搜索,云盘搜索,百度云盘,网盘搜索引擎,百度网盘">
+<meta name="description" content="胖浩子搜索支持百度云搜索,可快速搜索百度网盘资源中的有效连接,自动识别无效的百度云网盘资源,每天更新海量资源。">
 {{template "header"}}
 <body>
-{{template "navi"}}
-<div class="container">
-    <div class="searchtitle">
-        百度网盘搜索
-    </div>
-    <div class="searchbar">
-        <form id="panform">
-            <div class="col-xs-12 col-sm-9 col-md-9">
-                <input id="searchinput" name="keyword" type="text" placeholder="请输入搜索关键字">
+{{/*{{template "navi"}}*/}}
+<div class="container logo-wrap">
+    <a href="/">
+        <img class="logo" src="/static/img/logo.png">
+    </a>
+    <h1>网盘搜索</h1>
+</div>
+{{/*{{template "pansearcher"}}*/}}
+<div class="searchbar">
+    <div class="search-wrapper">
+        <form id="panform" action="/pan/search" method="get">
+            <div class="search-input-box">
+                <input id="searchinput" name="keyword" type="text" placeholder="请输入搜索关键字" value="{{.}}" >
             </div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <button id="searchbutton" type="submit">搜一搜</button>
+            <div class="search-button-box">
+                <button id="searchbutton" type="submit">搜索</button>
             </div>
+        {{/*<div class="col-xs-12 col-sm-2 col-md-2">*/}}
+        {{/*<button id="deepsearchbutton" type="submit" name="method" value="cache">深度搜索</button>*/}}
+        {{/*</div>*/}}
         </form>
     </div>
 </div>
-<div class="container declaration-box">
-    <div class="row declaration">
-        <div class="title">声明</div>
-        <div class="content">
-            <p>1.在输入框里面输入您想查看的资源,比如我想看电影《窃听风云》,只需要输入:窃听风云，然后点击搜索按钮。</p>
-            <p>2.若您想搜索的关键词包含多个，请用空格隔开，比如想搜索：电影《活着》，可以输入：电影 活着，然后点击搜索按钮。</p>
-            <p>3.若您要下载资源请先<a href="https://pan.baidu.com/download#pan" target="_blank">安装百度网盘客户端</a>,然后点击"保存到网盘"，然后按照<a href="/pan/download" target="_blank">说明</a>可以高速下载资源。</p>
-            <p>4.本站不下载和存储任何资源，仅供技术交流与研究。</p>
-        </div>
-    </div>
-</div>
+{{template "hotkeys"}}
+{{/*<div class="announcement-box">*/}}
+    {{/*<span class="title">公告</span>*/}}
+    {{/*<div class="content-box">*/}}
+        {{/*<p class="content">新增了查询结果，查询后请留意最下方的翻页功能。</p>*/}}
+    {{/*</div>*/}}
+{{/*</div>*/}}
 {{template "footer"}}
 </body>
 </html>

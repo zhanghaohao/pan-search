@@ -1,11 +1,6 @@
-$('#panform').submit(function (event) {
-    event.preventDefault();
-    var keyword = $('#searchinput').val();
-    window.location.href = "/pan/search/" + encodeURIComponent(keyword);
-    return false;
-});
 
 function CalSize(size) {
+    if (size == 0) return '未知';
     size = size / 1024;
     if (size < 1024) return size.toFixed(1) + ' KB';
     size = size / 1024;
@@ -22,11 +17,3 @@ $('#magnetform').submit(function (event) {
     window.location.href = "/magnet/search/" + encodeURIComponent(keyword);
     return false;
 });
-
-// $('.navimenu a').click(function (event) {
-//     // event.preventDefault();
-//     // $('.navimenu a').each(function (index, item) {
-//     //     item.style.color = "#0078ff";
-//     // });
-//     $(this).css("color", "#D23141").siblings().css("color", "#0078ff");
-// });

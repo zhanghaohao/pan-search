@@ -2,7 +2,7 @@ package util
 
 import (
 	"time"
-	logger "util/log"
+	logger "util/logger"
 	"runtime"
 )
 

@@ -4,24 +4,22 @@ import (
 	"net/http"
 	"net"
 	"os"
-	"router"
-	logger "util/log"
-	"util/coreconfig"
+	"route"
+	"util/logger"
 )
 
 func main()  {
-	_, err := coreconfig.YamlParser()
+	mux := http.NewServeMux()
+	mux, err := route.RegisterRoutes(mux)
 	if err != nil {
 		panic(err)
 	}
-	mux := http.NewServeMux()
-	mux = router.Router(mux)
 	server := &http.Server{Handler: mux}
 	l, err := net.Listen("tcp4", ":8080")
 	if err != nil {
 		logger.Error.Printf("%v", err)
 	}
-	logger.Info.Printf("Starting Baidupan Search ...")
+	logger.Info.Printf("starting service...")
 	err = server.Serve(l)
 	if err != nil {
 		logger.Error.Printf("%v", err)

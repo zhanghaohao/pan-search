@@ -1,0 +1,25 @@
+{{ define "404-1" }}
+<!DOCTYPE html>
+<html lang="en">
+<title>网盘搜索 - 胖浩子搜索</title>
+<meta name="keywords" content="胖浩子搜索,胖浩子,网盘搜索,云盘搜索,百度云盘,网盘搜索引擎,百度网盘">
+<meta name="description" content="胖浩子搜索支持百度云搜索,可快速搜索百度网盘资源中的有效连接,自动识别无效的百度云网盘资源,每天更新海量资源。">
+{{template "header"}}
+<body>
+<div class="container wrapper">
+{{template "pansearcher" .}}
+</div>
+<div class="container">
+    <div class="empty-box">
+        <img src="/static/img/notfound.png">
+        <p class="comment">该页面不存在 404 -_-</p>
+        <br>
+        <br>
+        <br>
+        <a href="/">返回首页</a>
+    </div>
+</div>
+{{template "footer"}}
+</body>
+</html>
+{{ end }}

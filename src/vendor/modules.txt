@@ -1,0 +1,134 @@
+# github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96
+github.com/AndreasBriese/bbloom
+# github.com/BurntSushi/toml v0.3.1
+github.com/BurntSushi/toml
+# github.com/PuerkitoBio/goquery v1.5.1
+github.com/PuerkitoBio/goquery
+# github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d
+github.com/StackExchange/wmi
+# github.com/andybalholm/cascadia v1.1.0
+github.com/andybalholm/cascadia
+# github.com/cespare/xxhash v1.1.0
+github.com/cespare/xxhash
+# github.com/dgraph-io/badger v1.6.1
+github.com/dgraph-io/badger
+github.com/dgraph-io/badger/options
+github.com/dgraph-io/badger/pb
+github.com/dgraph-io/badger/skl
+github.com/dgraph-io/badger/table
+github.com/dgraph-io/badger/trie
+github.com/dgraph-io/badger/y
+# github.com/dgraph-io/ristretto v0.0.2
+github.com/dgraph-io/ristretto/z
+# github.com/dustin/go-humanize v1.0.0
+github.com/dustin/go-humanize
+# github.com/fsnotify/fsnotify v1.4.9
+github.com/fsnotify/fsnotify
+# github.com/garyburd/redigo v1.6.0
+github.com/garyburd/redigo/redis
+github.com/garyburd/redigo/internal
+# github.com/go-ego/cedar v0.10.0
+github.com/go-ego/cedar
+# github.com/go-ego/gpy v0.31.0
+github.com/go-ego/gpy
+github.com/go-ego/gpy/phrase
+# github.com/go-ego/gse v0.50.3
+github.com/go-ego/gse
+github.com/go-ego/gse/hmm
+# github.com/go-ego/murmur v0.10.0
+github.com/go-ego/murmur
+# github.com/go-ego/riot v0.0.0-20200611143841-c7c8c77eaf1a
+github.com/go-ego/riot
+github.com/go-ego/riot/types
+github.com/go-ego/riot/core
+github.com/go-ego/riot/store
+github.com/go-ego/riot/utils
+# github.com/go-ole/go-ole v1.2.4
+github.com/go-ole/go-ole
+github.com/go-ole/go-ole/oleutil
+# github.com/go-sql-driver/mysql v1.5.0
+github.com/go-sql-driver/mysql
+# github.com/go-vgo/gt/conf v0.0.0-20200606140533-a397c46789df
+github.com/go-vgo/gt/conf
+# github.com/go-vgo/gt/info v0.0.0-20200606140533-a397c46789df
+github.com/go-vgo/gt/info
+# github.com/go-xorm/xorm v0.7.9
+github.com/go-xorm/xorm
+# github.com/golang/protobuf v1.4.2
+github.com/golang/protobuf/proto
+# github.com/golang/snappy v0.0.1
+github.com/golang/snappy
+# github.com/gorilla/websocket v1.4.2
+github.com/gorilla/websocket
+# github.com/pelletier/go-toml v1.8.0
+github.com/pelletier/go-toml
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
+# github.com/shirou/gopsutil v2.20.5+incompatible
+github.com/shirou/gopsutil/mem
+github.com/shirou/gopsutil/cpu
+github.com/shirou/gopsutil/disk
+github.com/shirou/gopsutil/host
+github.com/shirou/gopsutil/internal/common
+github.com/shirou/gopsutil/process
+github.com/shirou/gopsutil/net
+# github.com/syndtr/goleveldb v1.0.0
+github.com/syndtr/goleveldb/leveldb
+github.com/syndtr/goleveldb/leveldb/cache
+github.com/syndtr/goleveldb/leveldb/comparer
+github.com/syndtr/goleveldb/leveldb/errors
+github.com/syndtr/goleveldb/leveldb/filter
+github.com/syndtr/goleveldb/leveldb/iterator
+github.com/syndtr/goleveldb/leveldb/journal
+github.com/syndtr/goleveldb/leveldb/memdb
+github.com/syndtr/goleveldb/leveldb/opt
+github.com/syndtr/goleveldb/leveldb/storage
+github.com/syndtr/goleveldb/leveldb/table
+github.com/syndtr/goleveldb/leveldb/util
+# github.com/yunge/sphinx v0.0.0-20150804231640-7962b7621b64
+github.com/yunge/sphinx
+# go.etcd.io/bbolt v1.3.4
+go.etcd.io/bbolt
+# golang.org/x/net v0.0.0-20200602114024-627f9648deb9
+golang.org/x/net/html
+golang.org/x/net/html/atom
+golang.org/x/net/trace
+golang.org/x/net/internal/timeseries
+# golang.org/x/sys v0.0.0-20200610111108-226ff32320da
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+golang.org/x/sys/internal/unsafeheader
+# google.golang.org/protobuf v1.24.0
+google.golang.org/protobuf/encoding/prototext
+google.golang.org/protobuf/encoding/protowire
+google.golang.org/protobuf/proto
+google.golang.org/protobuf/reflect/protoreflect
+google.golang.org/protobuf/reflect/protoregistry
+google.golang.org/protobuf/runtime/protoiface
+google.golang.org/protobuf/runtime/protoimpl
+google.golang.org/protobuf/internal/encoding/messageset
+google.golang.org/protobuf/internal/encoding/text
+google.golang.org/protobuf/internal/errors
+google.golang.org/protobuf/internal/fieldnum
+google.golang.org/protobuf/internal/flags
+google.golang.org/protobuf/internal/mapsort
+google.golang.org/protobuf/internal/pragma
+google.golang.org/protobuf/internal/set
+google.golang.org/protobuf/internal/strs
+google.golang.org/protobuf/internal/fieldsort
+google.golang.org/protobuf/internal/filedesc
+google.golang.org/protobuf/internal/filetype
+google.golang.org/protobuf/internal/impl
+google.golang.org/protobuf/internal/version
+google.golang.org/protobuf/internal/detrand
+google.golang.org/protobuf/internal/descfmt
+google.golang.org/protobuf/internal/descopts
+google.golang.org/protobuf/internal/encoding/defval
+google.golang.org/protobuf/internal/encoding/tag
+google.golang.org/protobuf/internal/genname
+# gopkg.in/yaml.v2 v2.3.0
+gopkg.in/yaml.v2
+# xorm.io/builder v0.3.7
+xorm.io/builder
+# xorm.io/core v0.7.2-0.20190928055935-90aeac8d08eb
+xorm.io/core

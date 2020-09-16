@@ -1,149 +1,134 @@
-{{ define "pansearch" }}
+{{ define "search" }}
 <!DOCTYPE html>
 <html lang="en">
+<title>{{.Keyword}} - 网盘搜索 - 胖浩子搜索</title>
+<meta name="keywords" content="{{.Keyword}}">
+<meta name="description" content="{{.Keyword}} - 第{{.CurrentPageNumber}}页 - 网盘云资源 - 胖浩子搜索">
 {{template "header"}}
 <body>
-<div class="container wrapper">
-{{template "navi"}}
 {{template "pansearcher" .}}
-</div>
 <div class="container categorybar">
-    {{/*<div class="category-box">*/}}
-        <div class="category-title">结果筛选：</div>
-        <div class="category-list">
-            <div class="category glyphicon glyphicon-cloud" value="all">全部</div>
-            <div class="category glyphicon glyphicon-film" value="video">视频</div>
-            <div class="category glyphicon glyphicon-file" value="document">文档</div>
-            <div class="category glyphicon glyphicon-music" value="audio">音乐</div>
-            <div class="category glyphicon glyphicon-cloud-download" value="seed">种子</div>
-            <div class="category glyphicon glyphicon-picture" value="picture">图片</div>
-            <div class="category glyphicon glyphicon-folder-close" value="folder">文件夹</div>
-            <div class="category glyphicon glyphicon-briefcase" value="archive">压缩包</div>
-        </div>
-    {{/*</div>*/}}
+    <div class="category-title">结果筛选：</div>
+    <div class="category-list">
+        <div class="category glyphicon glyphicon-cloud" value="all">全部</div>
+        <div class="category glyphicon glyphicon-film" value="video">视频</div>
+        <div class="category glyphicon glyphicon-file" value="document">文档</div>
+        <div class="category glyphicon glyphicon-music" value="audio">音乐</div>
+        <div class="category glyphicon glyphicon-cloud-download" value="seed">种子</div>
+        <div class="category glyphicon glyphicon-picture" value="picture">图片</div>
+        <div class="category glyphicon glyphicon-folder-close" value="folder">文件夹</div>
+        <div class="category glyphicon glyphicon-briefcase" value="archive">压缩包</div>
+    </div>
+</div>
+<div class="notfound-box">
+    <img src="/static/img/empty.png">
+    <p>没有搜到，请更换关键词试试。</p>
+    <p class="hot-try">试试下面的热搜词</p>
+    {{template "hotkeys"}}
+</div>
+<div class="container totalCount">
+    <p>共搜索出  <span>{{.TotalCount}}</span>  条结果</p>
 </div>
 <div class="container result">
+    {{range $i, $item := .MetaDatas}}
+        <div class="item-box">
+            <div class="icon-box">
+                <img id="icon" src="/static/img/{{$item.Icon}}">
+            </div>
+            <div class="info-box">
+                <div class="title">
+                    <a target="_blank" href="/pan/search/resource/{{$item.ID}}">{{$item.Title}}</a>
+                </div>
+                <ul class="attribute">
+                    <li> 上传时间： {{$item.CTime}} </li>
+                    <li> 大小： {{$item.Size}} </li>
+                </ul>
+            </div>
+        </div>
+    {{end}}
 </div>
+<div class="container showPage">
+    <div class="pagination">
+        {{range $i, $item := .Pages}}
+            {{if eq $item.Href ""}}
+                    <span>{{$item.Text}}</span>
+            {{else}}
+                <a class="{{$item.Class}}" href="{{$item.Href}}">{{$item.Text}}</a>
+            {{end}}
+        {{end}}
+    </div>
+</div>
+
 {{template "footer"}}
 </body>
 
 <script>
-var keyword = $("#searchinput").val();
-$.ajax({
-    type: "get",
-    url: "/pan/search/getrbdps",
-    data: {"keyword": keyword},
-    beforeSend: function() {
-        // var randomNumber = parseInt(Math.random() * 3 + 1);
-        // $(".result").append('<img src="/static/gif/' + randomNumber + '.gif">');
-        $(".result").append('<img src="/static/gif/loading.gif">');
-    },
-    success: renderResult,
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        $(".result").empty();
-        $(".result").append("获取数据失败 " + XMLHttpRequest.responseText);
-    }
-});
+    // $(document).ready(function () {
+    //     pagination();
+    // });
+
 
 $(".category").click(function () {
     $(".category").removeClass("active");
     $(this).addClass("active");
-    // var currentUrl = window.location.href;
-    // var urlPrefix = currentUrl.split("?")[0];
-    // var queryString = location.pansearch;
-    // var queryStringKeyword = queryString.split("&")[0];
-    var keyword = $("#searchinput").val();
     var category = $(this).attr("value");
-    // console.log(category);
-    $.get("/pan/search/getrbdps", {"keyword": keyword, "category": category}, renderResult);
-
+    uri = window.location.href;
+    key = "category";
+    value = category;
+    newURL = updateURLParam(uri, key, value);
+    // set page number to 0
+    newURL = updateURLParam(newURL, "page", "1");
+    window.location.href = newURL;
 });
 
-function renderResult(response) {
-    if (response === '' || response === null) {
-        var totalCount = 0;
-    } else {
-        var totalCount = response.length;
+function updateURLParam(uri, key, value) {
+    if(value.length == 0) {
+        return uri
     }
-    $(".result").empty();
-    $(".result").append(
-            '<div class="total-count">' +
-            '共搜索到 ' + totalCount + " 条结果" +
-            '</div>' +
-            '<div class="item-list">' +
-            renderItemList(response) +
-            '</div>'
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+    if (uri.match(re)) {
+        return uri.replace(re, '$1' + key + "=" + value + '$2');
+    }
+    else {
+        return uri + separator + key + "=" + value;
+    }
+}
+
+function deleteURLParam(uri, key) {
+    var re = new RegExp("(&)" + key + "=.*?(&|$)", "i");
+    if (uri.match(re)) {
+        return uri.replace(re, '$2');
+    }
+}
+
+function pagination() {
+    currentPageNum = {{.CurrentPageNumber}};
+    totalCount = {{.TotalCount}};
+    var pageSize = 20;
+    $('.pagination').pagination(totalCount, {
+        current_page: currentPageNum,
+        ellipse_text: '...',
+        num_edge_entries: 1,
+        num_display_entries: 4,
+        items_per_page: pageSize,
+        prev_text:"上一页",
+        next_text:"下一页",
+        prev_show_always:true,
+        next_show_always:true,
+        show_firstEnd:false,
+        first_text:"首页",
+        end_text:"末页",
+        callback: function (clickPageNum) {
+            // console.log("click page", clickPageNum);
+            uri = window.location.href;
+            key = "page";
+            value = clickPageNum;
+            newURL = updateURLParam(uri, key, value);
+            // console.log(newURL);
+            window.location.href = newURL;
+        }}
     );
-}
-
-function renderItemList(response) {
-    var itemHtml = '';
-    if (response === '' || response === null) {
-        return itemHtml;
-    }
-    $.each(response, function (index, item) {
-        var category = item["category"];
-        var url = item["url"];
-        var title = item["title"];
-        var re = new RegExp(keyword, "gi");
-        title = title.replace(re, "<span class='highlight'>" + keyword + "</span>");
-        var ctime = item["ctime"];
-        var size = item["size"];
-        var resource = item["resource"];
-        if (category == "video") {
-            var icon = "video.png";
-        } else if (category == "document") {
-            var icon = "document.png";
-        } else if (category == "audio" || category == "picture") {
-            var icon = "file.png";
-        } else if (category == "seed") {
-            var icon = "seed.png";
-        } else if (category == "folder") {
-            var icon = "folder.png";
-        } else if (category == "archive") {
-            var icon = "archive.png";
-        } else {
-            var icon = "file.png";
-        }
-        // handle password
-        // if (password != "") {
-        //     var passwordHtml = '<li class="password">' + '密码：' + password + '</li>';
-        // } else {
-        //     var passwordHtml = '';
-        // }
-        // handle size
-        var realSize = CalSize(size);
-        itemHtml += '<div class="item-box">' +
-                '<div class="icon-box">' +
-                '<img id="icon" src="/static/img/' + icon + '">' +
-                '</div>' +
-                '<div class="info-box">' +
-                '<div class="title">' +
-                '<a target="_blank" href="javascript:void(0);" onclick="goto(\'' + url + '\')">' + title + '</a>' +
-                '</div>' +
-                '<ul class="attribute">' +
-                    '<li>' + '上传时间：' + ctime + '</li>' +
-                    '<li>' + '大小：' + realSize + '</li>' +
-                    '<li>' + '渠道：' + resource + '</li>' +
-                '</ul>' +
-                '</div>' +
-                '</div>';
-    });
-    return itemHtml;
-}
-
-function goto(url) {
-    var request = new XMLHttpRequest();
-    var data;
-    request.open('POST', '/pan/search/getid', false);
-    request.setRequestHeader("Content-Type", "application/json");
-    data = JSON.stringify({"url": url});
-    request.send(data);
-    if (request.status === 200) {
-        // console.log(request.responseText);
-        var id = request.responseText;
-        window.open("/pan/search/bdp/" + id + ".html");
-    }
 }
 </script>
 </html>

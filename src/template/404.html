@@ -1,15 +1,20 @@
 {{ define "404" }}
 <!DOCTYPE html>
 <html lang="en">
+<title>网盘搜索 - 胖浩子搜索</title>
+<meta name="keywords" content="胖浩子搜索,胖浩子,网盘搜索,云盘搜索,百度云盘,网盘搜索引擎,百度网盘">
+<meta name="description" content="胖浩子搜索支持百度云搜索,可快速搜索百度网盘资源中的有效连接,自动识别无效的百度云网盘资源,每天更新海量资源。">
 {{template "header"}}
 <body>
 <div class="container wrapper">
-{{template "navi"}}
 {{template "pansearcher" .}}
 </div>
 <div class="container">
-    <div class="notfound">
-        为了更好的用户体验，我们会定期删除已经失效的分享资源，请您再搜索本站其他资源试试
+    <div class="empty-box">
+        <img src="/static/img/notfound.png">
+        <p class="comment">若您的搜索关键词包含多个词语，请将它们用空格分开再搜索！</p>
+        <p class="hot-try">试试下面的热搜词</p>
+        {{template "hotkeys"}}
     </div>
 </div>
 {{template "footer"}}
