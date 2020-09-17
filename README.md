@@ -14,7 +14,7 @@
 不像ElasticSearch，动辄就需要几个G的内存资源。
 # 安装
 ## 开发环境配置
-请先下载Golang语言的IDE，比如Goland。
+请先下载Golang语言的IDE，比如Goland。    
 安装Go1.9以上版本。
 ## 安装依赖包
 ```
@@ -24,15 +24,15 @@ export GOPROXY=https://goproxy.io
 go mod vendor
 ```
 ## 修改配置文件
-请根据你的情况修改配置文件：src/plugin/config/config.yaml。
+请根据你的情况修改配置文件：src/plugin/config/config.yaml。     
 包含Mysql、Redis、微信服务号、Sphinx的配置。
 ## 启动程序
 `cd src/`  
 `go build start.go`
 ## 访问网站
-程序跑起来后会在本地8080端口监听，你可以通过http://localhost:8080 来访问
+程序跑起来后会在本地8080端口监听，你可以通过http://localhost:8080 来访问。
 # 欢迎随时联系我
-本人有多年运维开发经验，擅长Linux, Ansible, Kubernetes, Golang, Python, Html等技术。
-如果有小伙伴考虑创业或者私活，或者对我的项目感兴趣的可以随时联系我。
-本人邮箱：zhouxing_good@yeah.net
+本人有多年运维开发经验，擅长Linux, Ansible, Kubernetes, Golang, Python, Html等技术。     
+如果有小伙伴考虑创业或者私活，或者对我的项目感兴趣的可以随时联系我。     
+本人邮箱：zhouxing_good@yeah.net     
 
